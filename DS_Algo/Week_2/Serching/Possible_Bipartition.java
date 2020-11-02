@@ -57,32 +57,3 @@ class Possible_Bipartition {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-// List<Integer> dislikeList[] = new List[size + 1];
-
-// 		for (int i = 0; i < size; i++)
-// 			dislikeList[i] = new ArrayList<Integer>();
-
-// 		Initialize the list with what each element dislike : it will be directed a -> dislike b, means  b -> a also
-// 		for (int i = 0; i < size; i++) {
-// 			dislikeList[arr[i][0]].add(dislikeList[i][1]);
-// 			dislikeList[arr[i][1]].add(dislikeList[i][0]);
-// 		}
-
-// 		int group[] = new int[size + 1];
-// 		Arrays.fill(group, -1);
-
-// 		for (int i = 0; i <= size; i++)
-// 			if (group[i] == -1 && !colour(group, i, dislikeList, 0))
-// 				return false;
-
-// 		return true
