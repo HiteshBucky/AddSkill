@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Currency Convertor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container jumbotron">
+        <center><h1>Currency Convertor</h1></center><br>
+        <form onsubmit="return myFunction()">
+            <!-- Data -->
+            <div class="form-group">
+                <label for="amount">Amout</label>
+                <input type="number" class="form-control" id="amount" placeholder="Enter an amount" required>
+            </div>
+            <!-- From -->
+            <div class="form-group">
+                <label for="from_currency">From</label>
+                <select class="form-control" id="from_currency" required>
+                    <option value="Bitcoin">Bitcoin</option>
+                    <option value="United States Dollar">United States Dollar</option>
+                    <option value="United Arab Emirates Dhiram">United Arab Emirates Dhiram</option>
+                    <option value="Saudi Riyal">Saudi Riyal</option>
+                    <option value="Pakistan Rupee">Pakistan Rupee</option>
+                    <option value="Indian Rupee" selected>Indian Rupee</option>
+                    <option value="Chiness Yuan">Chiness Yuan</option>
+                </select>
+            </div>
+            <!-- To -->
+            <div class="form-group">
+                <label for="to_currency">From</label>
+                <select class="form-control" id="to_currency" required>
+                    <option value="Bitcoin">Bitcoin</option>
+                    <option value="United States Dollar" selected>United States Dollar</option>
+                    <option value="United Arab Emirates Dhiram">United Arab Emirates Dhiram</option>
+                    <option value="Saudi Riyal">Saudi Riyal</option>
+                    <option value="Pakistan Rupee">Pakistan Rupee</option>
+                    <option value="Indian Rupee">Indian Rupee</option>
+                    <option value="Chiness Yuan">Chiness Yuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="Submit" class="btn btn-primary">Convert</input>
+            </div>
+        </form>
+        <div>
+            <center>
+                <h2 id="answer"></h2>
+            </center>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="convertor.js"></script>
+    
+</body>
+
+</html>
