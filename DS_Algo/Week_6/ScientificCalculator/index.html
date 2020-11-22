@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<style>
+	#calculator {
+	    background-color: #DADCEA;
+	    width: 35%;
+	    border-radius: 5px;
+	    margin: 0 auto;
+	}
+	.form-control {
+	    height: 50px;
+	    font-size: 15px;
+	    display: inline-block;
+	    margin-top: 28px;
+	    margin-left: 2px;
+	    text-align: right;
+	}
+
+	/*  style Button-Primary */
+	.btn-primary {
+	    width: 15.7%;
+	    height: 40px;
+	    margin-left: 9px;
+	    margin-bottom: 14px;
+	    background-color: #DADCE0;
+	}
+
+	.keys {
+	    width: 100%;
+	    display: inline-block;
+	    margin: 15px 7px 15px 7px;
+	}
+	#equalBtn{
+		background-color: #4285F4;
+	}
+	#btn_AC{
+		background-color: grey;
+	}
+
+</style>
+
+<body>
+    <div class="container">
+        <form id="calculator">
+            <div class="form-group">
+            	<center><input type="text" id="show" class="form-control" style="width:  95%" readonly></center>
+            </div>
+            <br />
+            <div class="keys">
+                <!-- PI 	<-		( 		)		 AC 	-->
+                <button type="button" class="btn-primary" value="pi" name="btnPI" onclick="pie(btnPI)"> PI</button>
+                <button type="button" class="btn-primary" value="<-- " name="backbtn" onclick="backspace()"><-- </button> 
+                <button type="button" class="btn-primary" value="(" name="btnOpen" onclick="display(btnOpen.value)">(</button>
+                <button type="button" class="btn-primary" value=")" name="btnClose" onclick="display(btnClose.value)">)</button>
+                <button type="button" class="btn-primary" value="C" name="clear" onclick="display(clear.value)" id="btn_AC">AC</button>
+                <br>
+                <!-- ^ 		7		8		9		% 	-->
+                <button type="button" class="btn-primary" value="sqrt" name="btnSqrt" onclick="square(btnSqrt)"> ^ </button>
+                <button type="button" class="btn-primary" value="7" name="btn7" onclick="display(btn7.value)"> 7</button>
+                <button type="button" class="btn-primary" value="8" name="btn8" onclick="display(btn8.value)"> 8</button>
+                <button type="button" class="btn-primary" value="9" name="btn9" onclick="display(btn9.value)"> 9</button>
+                <button type="button" class="btn-primary" value="/" name="dividebtn" onclick="display(dividebtn.value)"> / </button>
+                <br />
+                <!-- Sin 		4		5 		6 		*	 -->
+                <button type="button" class="btn-primary" value="Sin" name="btnSin" onclick="sin(btnSin)">Sin</button>
+                <button type="button" class="btn-primary" value="4" name="btn4" onclick="display(btn4.value)"> 4</button>
+                <button type="button" class="btn-primary" value="5" name="btn5" onclick="display(btn5.value)"> 5</button>
+                <button type="button" class="btn-primary" value="6" name="btn6" onclick="display(btn6.value)"> 6</button>
+                <button type="button" class="btn-primary" value="*" name="timesbtn" onclick="display(timesbtn.value)"> * </button>
+                <br>
+                <!-- Cos 		1		2		3		-	 -->
+                <button type="button" class="btn-primary" value="Cos" name="btnCos" onclick="cos(btnCos)">Cos</button>
+                <button type="button" class="btn-primary" value="1" name="btn1" onclick="display(btn1.value)"> 1</button>
+                <button type="button" class="btn-primary" value="2" name="btn2" onclick="display(btn2.value)"> 2</button>
+                <button type="button" class="btn-primary" value="3" name="btn3" onclick="display(btn3.value)"> 3</button>
+                <button type="button" class="btn-primary" value="-" name="minusbtn" onclick="display(minusbtn.value)"> -</button>
+                <br />
+                <!-- tan 		0		. 		=		+	 -->
+                <button type="button" class="btn-primary" value="Tan" name="btnTan" onclick="tan(btnTan)">Tan</button>
+                <button type="button" class="btn-primary" value="0" name="btn0" onclick="display(btn0.value)"> 0</button>
+                <button type="button" class="btn-primary" value="." name="dotbtn" onclick="display(dotbtn.value)"> .</button>
+                <button type="button" class="btn-primary" value="=" name="equal" onclick="answer()" id="equalBtn">=</button>
+                <button type="button" class="btn-primary" value="+" name="addbtn" onclick="display(addbtn.value)"> +</button>
+                <br>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        var txtField = document.getElementById('show');
+
+        // Include a provision to store history of last 10 calculations done.
+        let history = [];
+
+        /*Include PI in the calculator and make it use-able.*/
+        function pie(txt) {
+            txt = txtField.value;
+            txtField.value = txt * 3.142;
+        }
+
+        /* Include functionality to calculate sin, cos and tan of a number */
+        function sin(txt) {
+            txt = txtField.value;
+            txt = Math.sin(txt * Math.PI / 180);
+            txtField.value = txt;
+        }
+
+        function cos(txt) {
+            txt = txtField.value;
+            txt = Math.cos(txt * Math.PI / 180);
+            txtField.value = txt;
+        }
+
+        function tan(txt) {
+            txt = txtField.value;
+            txt = Math.tan(txt * Math.PI / 180);
+            txtField.value = txt;
+        }
+
+        /*Include the provision for backspace button.*/
+        function backspace() {
+            var num = txtField.value;
+            var len = num.length - 1;
+            var newNumber = num.substring(0, len);
+            txtField.value = newNumber;
+        }
+
+        /*Include predifined function : Square*/
+        function square(txt) {
+            txt = txtField.value;
+            txt = Math.sqrt(txt);
+            txtField.value = txt;
+        }
+
+        //Main method to calculate
+        function answer(txt) {
+            txt = txtField.value;
+            if (txt != "") {
+                try {
+                    txt = eval(txt);
+                    txtField.value = txt;
+                    /*In case of divide by 0, report "Cannot divide by 0" instead of "Infinity"*/
+                    if (txt == (1 / 0)) txtField.value = "Cannot divide by 0";
+                } catch (error) {
+                    txtField.value = "Syntax error";
+                }
+            }
+            if(txtField.value != String)
+                history.push(txtField.value)
+        }
+
+        /* Display the output to the textbox*/
+        function display(txt) {
+            txtField.value += txt;
+
+            // If the input is clear
+            if (txt === 'C') {
+                txtField.value = "";
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
