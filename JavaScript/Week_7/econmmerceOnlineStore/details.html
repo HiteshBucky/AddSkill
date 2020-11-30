@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<div class="jumbotron container">
+			<h1 id="title"></h1>
+			<img src="" style="height: 250px;" alt="Image" id="img">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in .</p>
+		</div>
+	</center>
+</body>
+	
+	<script>
+		var queryString = decodeURIComponent(window.location.search);
+		queryString = queryString.substring(1);
+		var queries = queryString.split("&");
+
+		var name = queries[0].split('=')[1];
+		var imageUrl = queries[1].split('=')[1];
+
+		title.innerHTML = name;
+		img.src = imageUrl;
+
+		console.log(name);
+		console.log(imageUrl);
+
+	</script>
+
+</html>

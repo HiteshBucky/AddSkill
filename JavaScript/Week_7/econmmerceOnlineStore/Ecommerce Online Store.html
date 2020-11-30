@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cool Veggies</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+    </script>
+    <style>
+            /* Remove the navbar's default rounded borders and increase the bottom margin */
+        .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+        }
+        .invalid { border-color: red; }
+
+        #myInput{
+          margin-top: 13px;
+        }
+        .dropdown{
+           margin-top: 13px;
+           padding: 3px;
+           margin-left: 10px;
+        }
+
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+          margin-bottom: 0;
+        }
+
+        div.panel:hover {
+            background-color:#d5ebf7;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+        }
+  </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"> <strong> Best Veggies </strong> </a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">Stores</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search"></li>
+                    <li>
+                      <select class="mdb-select md-form dropdown" onchange="dropdownFunction(this);">
+                        <option value="" disabled selected>Category</option>
+                        <option value="All">All</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Vegetables">Vegetables</option>
+                      </select>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+                    <li onclick="showCart(this)"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <textarea id="log" style="width: 0px">Events will show up here!</textarea>
+
+  <div id="container">
+    <div class="container" >
+        <div class="row">
+          <div id="tomatoDiv" class="col-sm-4" >
+              <div class="panel panel-primary" >
+                  <div class="panel-heading">Tomatoes</div>
+                  <div class="panel-body" onclick="moreDetails(this)"><img src="cart Images/tomato.jpg" class="img-responsive" style="width:100%; height: 250px;" alt="Image"  onmouseover="onHover('Tomatoes')" onmouseout="onHoverout('Tomatoes')"></div>
+                  <div class="panel-footer"><button id="tomatoButton" type="button" class="btn btn-primary" onclick="add_Cart(this)">Buy Tomato's</button></div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="panel panel-primary" onmouseover="onHover('Cucumber')" onmouseout="onHoverout('Cucumber')">
+                  <div class="panel-heading" >Cucumber</div>
+                  <div class="panel-body" onclick="moreDetails(this)"><img src="cart Images/cucumber.jpg" class="img-responsive" style="width:100%;  height: 250px;" alt="Image"></div>
+                  <div class="panel-footer"><button id="tomatoButton" type="button" class="btn btn-primary" onclick="add_Cart(this)">Buy Cucumber</button></div>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="panel panel-primary" onmouseover="onHover('Chilli')" onmouseout="onHoverout('Chilli')">
+                  <div class="panel-heading" >Chilli's</div>
+                  <div class="panel-body"  onclick="moreDetails(this)"><img src="cart Images/chilli.jpg" class="img-responsive" style="width:100%; height: 250px" alt="Image"></div>
+                  <div class="panel-footer"><button id="tomatoButton" type="button" class="btn btn-primary" onclick="add_Cart(this)">Buy Chilli</button></div>
+              </div>
+          </div>
+      </div>
+    </div><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-primary" onmouseover="onHover('Strawberry')" onmouseout="onHoverout('Strawberry')">
+                    <div class="panel-heading" >Strawberry's</div>
+                    <div class="panel-body"  onclick="moreDetails(this)"><img id="strawberyImg" src="cart Images/strawbery.jpg" class="img-responsive" style="width:100%; height: 250px;" alt="Image"></div>
+                    <div class="panel-footer"><button id="tomatoButton" type="button" class="btn btn-primary" onclick="add_Cart(this)">Buy Strawberry</button></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary" onmouseover="onHover('Mango')" onmouseout="onHoverout('Mango')">
+                    <div class="panel-heading" >Mango's</div>
+                    <div class="panel-body"  onclick="moreDetails(this)"><img src="cart Images/mango.jpg" class="img-responsive" style="width:100%;  height: 250px;" alt="Image"></div>
+                    <div class="panel-footer"><button id="tomatoButton" type="button" class="btn btn-primary" onclick="add_Cart(this)">Buy Mango</button></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary" onmouseover="onHover('Pineapple')" onmouseout="onHoverout('Pineapple')">
+                    <div class="panel-heading">Pineapple's</div>
+                    <div class="panel-body"  onclick="moreDetails(this)"><img src="cart Images/pineapple.jpg" class="img-responsive" style="width:100%; height: 250px" alt="Image"></div>
+                    <div class="panel-footer"><button id="tomatoButton" type="button" class="btn btn-primary" onclick="add_Cart(this)">Buy Pineapple</button></div>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+    <footer class="container-fluid text-center">
+        <p>Online Store Copyright</p>
+        <form class="form-inline">Get deals:
+            <input type="text" class="form-control" id="email" size="50" placeholder="Email Address">
+            <button type="button" class="btn btn-danger">Sign Up</button>
+        </form>
+    </footer>
+</div>
+
+</body>
+
+
+<script type="text/javascript" src="javascript.js"></script>
+
+</html>
