@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<head>
+	<title>Cart Details</title>
+</head>
+<style>
+	ul{
+		list-style-type: none;
+	}
+	body{
+		margin-top: 20%;
+	}
+</style>
+<body>
+	<center>
+		<h1>Cart Item</h1>
+		<div class="jumbotron container">
+			<ul id="list"></ul>
+		</div>
+	</center>
+</body>
+	
+	<script>
+		var queryString = decodeURIComponent(window.location.search);
+		queryString = queryString.substring(1);
+		var queries = queryString.split("&");
+
+		var cartList = queries[0].split('=')[1].split(',');
+
+		if(cartList=='' || !cartList || cartList == null){
+			list.innerHTML = "<h1>Your Cart is Empty</h1>"
+		}else{
+			cartList.forEach(cart_element => {
+				var ul = document.getElementById("list");
+				var li = document.createElement("li");
+				li.appendChild(document.createTextNode(cart_element));
+				ul.appendChild(li);
+			})
+		}
+
+	</script>
+
+</html>
